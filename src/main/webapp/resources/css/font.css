@@ -1,0 +1,202 @@
+
+@font-face {
+
+  font-family: 'SFUHelveticaLight';
+
+  src: url(../font/HelveticaLight.ttf);
+
+}
+
+@font-face {
+  font-family: 'Palatino Linotype Bold Italic';
+  src: url(../font/PalatinoLinotypeBoldItalic.ttf);
+}
+@font-face {
+
+  font-family: 'Palatino Linotype';
+
+  src: url(../font/PalatinoLinotype.ttf);
+
+}
+@font-face {
+
+  font-family: 'Palatino';
+
+  src: url(../font/palatini.ttf);
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-REGULAR';
+
+  src: url(../font/regular.ttf);
+
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-SEMIBOLDIT';
+
+  src: url(../font/MYRIADPRO-SEMIBOLDIT.otf);
+
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-BOLD';
+
+  src: url(../font/bold.ttf);
+
+}
+@font-face {
+
+  font-family: 'helveticaneuelight';
+
+  src: url(../font/helveticaneuelight.ttf);
+
+}
+@font-face {
+
+  font-family: 'HelveticaNeue-Medium';
+
+  src: url(../font/helveticaneuemedium.ttf);
+
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-LIGHT';
+
+  src: url(../font/Myriad-Pro-Light.ttf);
+
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-IT';
+
+  src: url(../font/italic.ttf);
+
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-SEMIBOLD';
+
+  src: url(../font/Semibold.ttf);
+
+}
+@font-face {
+
+  font-family: 'Palatino-italic';
+  src: url(../font/Palatino-Italic.ttf);
+}
+@font-face {
+
+  font-family: 'HelveticaNeue-Thin';
+
+  src: url(../font/HelveticaNeue-Thin.otf);
+
+}
+@font-face {
+
+  font-family: 'HelveticaNeue-Medium';
+
+  src: url(../font/HelveticaNeue-Medium.ttf);
+
+}
+@font-face {
+
+  font-family: 'HelveticaNeue-Regular';
+
+  src: url(../font/HelveticaNeue-Regular.ttf);
+
+}
+@font-face {
+
+  font-family: 'PalatinoLinotypeItalic';
+
+  src: url(../font/PalatinoLinotypeItalic.ttf);
+
+}
+@font-face {
+
+  font-family: 'MYRIADPRO-LIGHTIT';
+
+  src: url(../font/Myriad-Pro-Light-Italic.ttf);
+
+}
+
+@font-face {
+  font-family: 'robotocondensed';
+  src: url(../font/robotocondensed-regular.ttf);
+}
+@font-face {
+  font-family: 'UTM_wedding_kt';
+  src: url(../font/UTM_wedding_kt.ttf);
+}
+@font-face {
+  font-family: 'UTM_French_Vanilla';
+  src: url(../font/UTM_French_Vanilla.ttf);
+}
+
+.MYRIADPRO-LIGHTIT {
+  font-family: 'MYRIADPRO-LIGHTIT';
+}
+.HelveticaLight {
+    font-family: 'SFUHelveticaLight';
+}
+.PalatinoLinotypeBoldIntaclic {
+    font-family: 'Palatino Linotype Bold Italic';
+}
+.PalatinoLinotype {
+    font-family: 'Palatino Linotype';
+}
+.Palatino {
+    font-family: 'Palatino';
+}
+.MYRIADPRO-REGULAR {
+  font-family: 'MYRIADPRO-REGULAR';
+}
+.MYRIADPRO-SEMIBOLDIT {
+  font-family: 'MYRIADPRO-SEMIBOLDIT';
+}
+.MYRIADPRO-BOLD {
+  font-family: 'MYRIADPRO-BOLD';
+}
+.helveticaneuelight {
+  font-family: 'helveticaneuelight';
+}
+.HelveticaNeue-Medium {
+  font-family: 'HelveticaNeue-Medium';
+}
+.MYRIADPRO-LIGHT {
+  font-family: 'MYRIADPRO-LIGHT';
+}
+.MYRIADPRO-IT {
+  font-family: 'MYRIADPRO-IT';
+}
+.MYRIADPRO-SEMIBOLD {
+  font-family: 'MYRIADPRO-SEMIBOLD';
+}
+.Palatino-italic {
+  font-family: 'Palatino-italic';
+}
+.HelveticaNeue-Thin {
+  font-family: 'HelveticaNeue-Thin';
+}
+.HelveticaNeue-Medium {
+  font-family: 'HelveticaNeue-Medium';
+}
+.HelveticaNeue-Regular {
+  font-family: 'HelveticaNeue-Regular';
+}
+.PalatinoLinotypeItalic {
+  font-family: 'PalatinoLinotypeItalic';
+}
+.SFUHelveticaLight {
+  font-family: 'SFUHelveticaLight';
+}
+.robotocondensed {
+  font-family: 'robotocondensed';
+}
+.UTM_wedding_kt {
+  font-family: 'UTM_wedding_kt';
+}
+.UTM_French_Vanilla {
+  font-family: 'UTM_French_Vanilla';
+}
