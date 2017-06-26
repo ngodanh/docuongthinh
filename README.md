@@ -13,7 +13,7 @@ http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.h
 
 => Set environment variable cho Java JDK (MAC eo biet)
 -> Cai dat tomcat(ko can start)
--> checkout source tu link nay: https://github.com/khangtrieuvy/dogodct.git
+-> checkout source tu link nay: https://github.com/ngodanh/docuongthinh.git
 -----------#1: Setup environment-----------
 
 -----------#2: How to run-----------
