@@ -16,6 +16,7 @@
     <script src="${pageContext.request.contextPath}/resources/js/ColladaLoader.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/Detector.js"></script>
     <script src="${pageContext.request.contextPath}/resources/js/stats.min.js"></script>
+    <%-- <script src="${pageContext.request.contextPath}/resources/js/GlobalHotkey.js"></script> --%>
 </head>
 <body>
 	<div class="header-container">
@@ -55,6 +56,22 @@
 		var particleCount = 100;
 		var particleSystem;
 		var isMoving = false;
+		var helper;
+		var isObjectClick = false;
+		var focusingObject;
+	    
+	    jQuery(document).ready(function($) {
+	    	$(document).on('keydown', function(event) {
+	    		if (event.which === 82) { // Key R rotate
+		    		if (focusingObject !== undefined) {
+			    		var rad = degrees_to_radians(90);
+			    		focusingObject.objects[0].children.forEach(function(element) {
+							element.rotateY(rad);
+						});
+		    		}
+	    		}
+	    	});
+	    });
 
 		init();
 		animate();
@@ -74,16 +91,16 @@
 			//
 
 			camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 2000 );				
-			camera.position.set( 100, 400, 600 );
+			camera.position.set( 0, 300, 300 );
 			camera.lookAt( new THREE.Vector3( 0, 0, 0 ) );
 
 			controls = new THREE.OrbitControls( camera, renderer.domElement );
 			/* controls.rotateSpeed = 1;
 			controls.noZoom = false;
 			controls.zoomSpeed = 1.2;
-			controls.staticMoving = true;
+			controls.staticMoving = true; */
 			controls.minPolarAngle = Math.PI / 3;
-			controls.maxPolarAngle = Math.PI / 3; */
+			controls.maxPolarAngle = Math.PI / 3;
 
 			scene = new THREE.Scene();
 
@@ -99,11 +116,11 @@
 			var img = "./resources/images/checkerboard1.jpg";
 			var Texture = new THREE.ImageUtils.loadTexture( img );
 			Texture.wrapS = Texture.wrapT = THREE.RepeatWrapping;
-			Texture.repeat.set( 4, 4 );
+			Texture.repeat.set( 3, 3 );
 			Texture.offset.set( 0.5, 0 );
 
 			var Material = new THREE.MeshBasicMaterial( { map: Texture, side: THREE.DoubleSide } );
-			var Geometry = new THREE.PlaneBufferGeometry( 400, 400, 1, 1 );
+			var Geometry = new THREE.PlaneBufferGeometry( 300, 300, 1, 1 );
 
 			var checkerboard = new THREE.Mesh( Geometry, Material );
 			checkerboard.position.y = - 1;
@@ -163,6 +180,7 @@
 				this.container.style.cursor = 'move';
 				this.focused.position.y = this.previous.y;
 				controls.enabled = false;
+				helper.update();
 			});
 
 			EventsControls2.attachEvent( 'mouseUp', function () {
@@ -196,8 +214,8 @@
 			var onError = function ( xhr ) { };
 			
 			var mtlLoader = new THREE.MTLLoader();
-			mtlLoader.setPath( './resources/models/lightchair.obj/' );
-			mtlLoader.load( '3d-model.mtl', function( materials ) {
+			mtlLoader.setPath( './resources/models/' );
+			mtlLoader.load( 'lightchair.obj/3d-model.mtl', function( materials ) {
 				materials.preload();
 				var objLoader = new THREE.OBJLoader();
 				objLoader.setMaterials( materials );
@@ -207,7 +225,27 @@
 					object.position.x = 50;
 					scene.add( object );
 					EventsControls2.attach( object );
+					helper = new THREE.BoundingBoxHelper(object, 0xff0000);
 				}, onProgress, onError );
+			});
+			/* mtlLoader.load( 'table/tbl022.mtl', function( materials ) {
+				materials.preload();
+				var objLoader = new THREE.OBJLoader();
+				objLoader.setMaterials( materials );
+				objLoader.setPath( './resources/models/' );
+				objLoader.load( 'table/tbl022.obj', function ( object ) {
+					object.position.y = - 1;
+					object.position.x = 250;
+					scene.add( object );
+					EventsControls2.attach( object );
+				}, onProgress, onError );
+			}); */
+			
+			EventsControls2.attachEvent( 'onclick', function () {
+				helper.update();
+				scene.add(helper);
+				isObjectClick = true;
+				focusingObject = this;
 			});
 
 			EventsControls3 = new EventsControls( camera, renderer.domElement );
@@ -216,53 +254,47 @@
 			EventsControls3.attachEvent( 'mouseOver', function () {
 				controls.enabled = true;
 			});
-			/* EventsControls3.attachEvent( 'dragAndDrop', function () {
-				controls.enabled = true;
-			}); */
 
 			EventsControls3.attachEvent( 'mouseOut', function () {
 				controls.enabled = true;
-
 			});
 
+			EventsControls3.attachEvent( 'onclick', function () {
+				if (!isObjectClick) {
+					scene.remove(helper);
+					focusingObject = undefined;
+				}
+				isObjectClick = false;
+			});
+		}
+		
+		function degrees_to_radians(degrees) {
+		  var pi = Math.PI;
+		  return degrees * (pi/180);
 		}
 
 		function addModelToScene( geometry, materials ) {
-
 			var material = new THREE.MeshFaceMaterial( materials );
 			model = new THREE.Mesh( geometry, material );
 			model.scale.set( 10, 10, 10 ); model.name = 'Tux';
 			model.rotation.x = -Math.PI/2; 
 			model.position.set( -75, 45, 175  );
 			scene.add( model ); EventsControls1.attach( model );
-
 		}
-
 
 		function animate() {
-
-				requestAnimationFrame(animate);
-				render();
-
+			requestAnimationFrame(animate);
+			render();
 		}
 
-
 		function render() {
-
-				EventsControls1.update();
-				EventsControls3.update();
-
-				controls.update();
-				renderer.render(scene, camera);
-
+			EventsControls1.update();
+			EventsControls3.update();
+			controls.update();
+			renderer.render(scene, camera);
 		}
 
 		</script>
-	    
-	    
-	    
-	    
-	    
 	</div>
 </body>
 </html>

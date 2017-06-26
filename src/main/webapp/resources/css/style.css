@@ -23,8 +23,10 @@
 	min-height: 500px;
 	max-height: 800px;
 	min-width: 600px;
-	max-width: 800px;
-	
+	max-width: 810px;
+    padding: 5px;
+    border-style: double;
+    margin: auto;
 }
 .row {
 	display: -webkit-inline-box;
